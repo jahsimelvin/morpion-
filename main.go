@@ -51,16 +51,16 @@ func Game (w http.ResponseWriter, r*http.Request){
 }
 
 func Pseudo(w http.ResponseWriter, r *http.Request) {
-	var data string
-	pseudo := r.FormValue("pseudo")
+	// var data string
+	// pseudo := r.FormValue("pseudo")
 
-	if len(pseudo) > 0 {
-		// Mettre à jour la variable pseudo
+	// if len(pseudo) > 0 {
+	// 	// Mettre à jour la variable pseudo
 
-		data.Pseudo = pseudo
+	// 	data.Pseudo = pseudo
 
-		http.Redirect(w, r, "/skin", http.StatusSeeOther)
-	}
+	// 	http.Redirect(w, r, "/skin", http.StatusSeeOther)
+	// }
 
 	renderTemplate(w, "tmpl/pseudo")
 
