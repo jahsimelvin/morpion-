@@ -87,54 +87,30 @@ footer {
 }
 /*  */
 
-/* title */
-.title {
+/* button */
+[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.play form {
+    margin-top: 75px;
     text-align: center;
-    color: rgba(255, 0, 0, 0.5);
-    position: absolute;
-    top: 175px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 32px;
-    text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.7);
-    animation: neonBlink 1s infinite alternate;
-    
+    border-radius: 15px;
+    justify-content: space-between;
 }
 
-@keyframes neonBlink {
-    0% {
-        text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.7);
-    }
-    100% {
-        text-shadow: 0 0 10px rgba(255, 0, 0, 0.1),
-                      0 0 20px rgba(255, 0, 0, 0.8),
-                      0 0 30px rgba(255, 0, 0, 0.6),
-                      0 0 40px rgba(255, 0, 0, 0.4);
-    }
-}
-/*  */
-
-/* wordToGuess */
-.word {
-    position: absolute;
-    top: 350px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #d8d8d8;
-}
-/*  */
-
-/* replay button */
 .play button{
     background-color: #000000;
-    color: #d8d8d8;
+    color: #ffffff;
     border: none;
     text-align: center;
     padding: 20px 50px;
     display: inline-block;
     font-size: 16px;
     position: absolute;
-    top: 550px;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 30px;

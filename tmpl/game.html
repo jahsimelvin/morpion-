@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman-Web
-        <img src="/image/icon.png">
-    </title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="./image/icon.png" type="image/x-icon">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="./static/game.css">
+    <link rel="shortcut icon" href="./img/logo.png">
+</head>
+<body>
+<header>
+    <div class="icon">
+        <a href="/home">
+            <img src="./img/icon.jpg" alt="icon" height="75">
+        </a>
+    </div>
 
+    <div>
+        <ul class="navbar">
+            <li class="nav-item">
+                <a href="/game">
+                    <u>play</u>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/leaderboard">leaderboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="/rules">how to play ?</a>
+            </li>
+        </ul>
+    </div>
 
+    <div class="icon">
+        <a href="/profil">
+            <img src="./img/icon-profile.png" alt="icone" height="50">
+        </a>
+    </div>
+</header>
+
+<div class="content">
+    <div class="title">
+        <h1>Veuillez cliquer pour lancer le jeu</h1>
+    </div>
+
+    <form action="/game1" method="post">
+        <div class="start-button">
+            <input type="submit" value="Commencer le jeu" />
+        </div>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 Tic-Tac-Toe Game. Tous droits réservés.</p>
+</footer>
+</body>
 </html>

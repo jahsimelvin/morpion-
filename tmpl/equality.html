@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman-Web
-        <img src="/image/icon.png">
-    </title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="./image/icon.png" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Name of the site -->
+    <title>TIC TAC TOE</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./static/equality.css" />
+    <!-- Icon of the site -->
+    <link rel="shortcut icon" href="./img/logo.png" />
+</head>
 
+<body>
+    <header>
+        <!-- Icon home -->
+        <div class="icone">
+            <a href="/home">
+                <img src="./img/icone.jpg" alt="icone" height="75" />
+            </a>
+        </div>
 
+        <!-- Navbar -->
+        <div>
+            <ul class="navbar">
+                <li class="nav-item">
+                    <a href="/game">play</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/leaderboard">leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/rules">how to play ?</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Icon profile -->
+        <div class="icone">
+            <a href="/profil">
+                <img src="./img/icone-profil.png" alt="icone" height="50" />
+            </a>
+        </div>
+    </header>
+
+    <!-- title -->
+    <div class="title">
+        <h1>IT'S A DRAW</h1>
+    </div>
+
+    <!-- button play again -->
+    <div class="play">
+        <form action="/game" method="post">
+            <button><strong>PLAY AGAIN</strong></button>
+        </form>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2024 Tic Tac Toe Game. All rights reserved.</p>
+    </footer>
+</body>
 </html>
