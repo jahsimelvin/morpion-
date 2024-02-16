@@ -1,93 +1,92 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
+	"log"
+	"math/rand"
 	"net/http"
+	"time"
 )
 
-var index = template.Must(template.ParseFiles("tmpl/index.html"))
-var game = template.Must(template.ParseFiles("tmpl/game.html"))
-var win = template.Must(template.ParseFiles("tmpl/index.html"))
-var loose = template.Must(template.ParseFiles("tmpl/index.html"))
-var equality = template.Must(template.ParseFiles("tmpl/index.html"))
-var rules = template.Must(template.ParseFiles("tmpl/index.html"))
-var pseudo = template.Must(template.ParseFiles("tmpl/pseudo.html"))
-
-type tictactoe struct{
-	pseudo		string
-	win			bool
-	equality	bool
-	endgame		bool
+type Game struct {
+	Board         [][]string // Tableau du jeu
+	CurrentPlayer string     // Joueur actuel
+	Winner        string     // Vainqueur du jeu (le cas échéant)
+	IsGameOver    bool       // Indique si le jeu est terminé
 }
 
-const port = ":3000"
-
-func main(){
-	http.HandleFunc("/",Index)
-
-	http.HandleFunc("/game",Game)
-
-	http.HandleFunc("/win", Win)
-
-	http.HandleFunc("/loose", Loose)
-
-	http.HandleFunc("/equality", Equality)
-
-	http.HandleFunc("/rules", Rules)
-
-	http.HandleFunc("/pseudo", Pseudo)
-
-	fmt.Println("Serveur en cours d'execution sur http://localhost:8080")
-	http.ListenAndServe(port, nil)
+// Fonction pour initialiser un nouveau jeu
+func NewGame() *Game {
+	// Créer un tableau vide de 3x3
+	board := make([][]string, 3)
+	for i := range board {
+		board[i] = make([]string, 3)
+		for j := range board[i] {
+			board[i][j] = " " // Initialiser chaque case avec un espace vide
+		}
+	}
+	// Créer un nouvel objet Game avec le tableau initialisé et d'autres valeurs par défaut
+	return &Game{
+		Board:         board,
+		CurrentPlayer: "X", // Commencer par le joueur X
+		Winner:        "",
+		IsGameOver:    false,
+	}
 }
 
-func Index (w http.ResponseWriter, r*http.Request){
-	renderTemplate(w, "tmpl/index")
-}
+var templates = template.Must(template.ParseGlob("templates/*.html"))
 
-func Game (w http.ResponseWriter, r*http.Request){
-	renderTemplate(w, "tmpl/game")
-}
-
-func Pseudo(w http.ResponseWriter, r *http.Request) {
-	// var data string
-	// pseudo := r.FormValue("pseudo")
-
-	// if len(pseudo) > 0 {
-	// 	// Mettre à jour la variable pseudo
-
-	// 	data.Pseudo = pseudo
-
-	// 	http.Redirect(w, r, "/skin", http.StatusSeeOther)
-	// }
-
-	renderTemplate(w, "tmpl/pseudo")
-
-}
-
-func Win (w http.ResponseWriter, r*http.Request){
-	renderTemplate(w, "tmpl/win")
-}
-
-func Loose (w http.ResponseWriter, r*http.Request){
-	renderTemplate(w, "tmpl/loose")
-}
-
-func Equality (w http.ResponseWriter, r*http.Request){
-	renderTemplate(w, "tmpl/equality")
-}
-
-func Rules (w http.ResponseWriter, r*http.Request){
-	renderTemplate(w, "tmpl/rules")
-}
-
-func renderTemplate(w http.ResponseWriter, tmpl string) { //Parse le fichier html et envoi les informations au client
-	t, err := template.ParseFiles("./" + tmpl + ".html")
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "index.html", nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	t.Execute(w, nil)
 }
 
+func gameHandler(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "game.html", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func winHandler(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "win.html", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func looseHandler(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "loose.html", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func equalityHandler(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "equality.html", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func main() {
+	rand.Seed(time.Now().UnixNano()) // Seed for random number generation
+
+	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/game", gameHandler)
+	http.HandleFunc("/win", winHandler)
+	http.HandleFunc("/loose", looseHandler)
+	http.HandleFunc("/equality", equalityHandler)
+
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+
+	log.Println("Server started on http://localhost:3000")
+	log.Fatal(http.ListenAndServe(":3000", nil))
+}
