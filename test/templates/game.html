@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Tic Tac Toe Game</h1>
+    <table id="board">
+        {{range .}}
+        <tr>
+            {{range .}}
+            <td>{{.}}</td>
+            {{end}}
+        </tr>
+        {{end}}
+    </table>
+    <script>
+        setInterval(function() {
+            fetch('/move', { method: 'POST' });
+            updateBoard();
+        }, 1000);
+
+        function updateBoard() {
+            fetch('/game')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('board').innerHTML = html;
+                });
+        }
+    </script>
+</body>
+</html>
