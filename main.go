@@ -86,6 +86,7 @@ func main() {
 	http.HandleFunc("/equality", equalityHandler)
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	http.Handle("/picture/", http.StripPrefix("/picture/", http.FileServer(http.Dir("picture"))))
 
 	log.Println("Server started on http://localhost:3000")
 	log.Fatal(http.ListenAndServe(":3000", nil))

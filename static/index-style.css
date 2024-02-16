@@ -1,0 +1,67 @@
+/* Réinitialisation des marges et des rembourrages */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style du bandeau noir */
+.black-bar {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+/* Style des icônes */
+.icon {
+    height: 30px;
+    margin-right: auto;
+}
+.icon1{
+    height: 30px;
+    margin-left: auto;
+}
+
+/* Style du titre Tic-Tac-Toe */
+h1 {
+    font-size: 30px;
+    font-family: "OCR A Std", monospace;
+    margin: 0 auto;
+}
+
+/* Style du titre Welcome to Tic-Tac-Toe */
+h2 {
+    font-size : 50px;
+    font-family: "Stencil Std", fantasy;
+    text-align: center;
+}
+
+/* Style du bouton Start Game */
+.start-game {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.start-game button {
+    background-color: #4c87af;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+/* Style de l'image de fond */
+footer {
+    background-size: cover;
+    background-position: center;
+    /* min-height: 100vh; */
+}
