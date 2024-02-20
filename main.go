@@ -44,8 +44,8 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func gameHandler(w http.ResponseWriter, r *http.Request) {
-	err := templates.ExecuteTemplate(w, "game.html", nil)
+func game2Handler(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "game2.html", nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -76,18 +76,36 @@ func equalityHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func rulesHandler(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "rules.html", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func pseudoHandler(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "pseudo.html", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
 func main() {
 	rand.Seed(time.Now().UnixNano()) // Seed for random number generation
 
 	http.HandleFunc("/", indexHandler)
-	http.HandleFunc("/game", gameHandler)
+	http.HandleFunc("/game2", game2Handler)
 	http.HandleFunc("/win", winHandler)
 	http.HandleFunc("/loose", looseHandler)
 	http.HandleFunc("/equality", equalityHandler)
+	http.HandleFunc("/rules", rulesHandler)
+	http.HandleFunc("/pseudo", pseudoHandler)
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.Handle("/picture/", http.StripPrefix("/picture/", http.FileServer(http.Dir("picture"))))
 
-	log.Println("Server started on http://localhost:3000")
-	log.Fatal(http.ListenAndServe(":3000", nil))
+	log.Println("Server started on http://localhost:8080")
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="/static/index-style.css">
-    <style>
-        body {
-            background-image: url('/picture/fond4.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-    </style>
-</head>
-<body>
-    <header class="black-bar">
-        <img src="../picture/joueur.jpg" class="icon"/>
-        <h1>Tic-Tac-Toe</h1>
-        <img src="../picture/icon.jpg" class="icon1">
-        <br><br>
-    </header>
-    <main>
-        <br><br>
-        <h2>Welcome to Tic Tac Toe !</h2>
-        <div class="start-game"><a href="game"></a><button>Start the Game</button></div>
-    </main>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="/static/index-style.css">
 
-</body>
+    </head>
+    <body>
+        <header class="black-bar">
+            <div class="pseudo">
+                <a href="http://localhost:8080/pseudo"><button><img src="./picture/utilisateur1.png" class="icon"/></button></a>
+
+            </div>
+
+            <h1>Tic-Tac-Toe</h1>
+
+            <div class="rules">
+                <a href="http://localhost:8080/rules"><button><img src="./picture/iconvf.png" class="icon1"></button></a>
+            </div>
+            <br><br>
+
+        </header>
+            <main>
+                <br><br>
+
+                <h2>Welcome to Tic Tac Toe !</h2>
+
+                <div class="start-game">
+                    <button><a href="http://localhost:8080/game2"><strong>start the game</strong></a></button>
+
+                </div>
+            </main>
+    </body>
 </html>

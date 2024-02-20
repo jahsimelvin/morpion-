@@ -32,20 +32,19 @@ h1 {
     margin: 0 auto;
 }
 
-/* Style du titre Welcome to Tic-Tac-Toe */
+/* Style du texte h2 en gras */
 h2 {
-    font-size : 50px;
+    font-size : 40px;
     font-family: "Stencil Std", fantasy;
     text-align: center;
 }
 
-.pseudo button {
-    cursor: pointer;
+p {
+    font-size : 18px;
+    font-family: "Stencil Std", fantasy;
+    text-align: center;
 }
 
-.rules button {
-    cursor: pointer;
-}
 
 /* Style du bouton Start Game */
 .start-game {
@@ -68,6 +67,23 @@ h2 {
     border-radius: 20px;
 }
 
+
+.pseudo button {
+    cursor: pointer;
+}
+
+.rules button {
+    cursor: pointer;
+}
+
+.rules {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 body {
     /* background-image: url('/picture/fond4.jpg'); */
     /*background-attachment: fixed;
@@ -80,13 +96,5 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
-    /* background: linear-gradient(#0000FF, #EE82EE, #0000FF); */
 }
 
-/* Style du footer */
-/* footer {
-    background-size: cover;
-    background-position: center;
-    padding: 15px 20px;
-    min-height: 100vh;
-} */

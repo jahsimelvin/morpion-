@@ -39,33 +39,15 @@ h2 {
     text-align: center;
 }
 
+
+
+
 .pseudo button {
     cursor: pointer;
 }
 
 .rules button {
     cursor: pointer;
-}
-
-/* Style du bouton Start Game */
-.start-game {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
-
-.start-game button {
-    background-color: #000000;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    text-align: center;
-    align-items: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 20px;
 }
 
 body {
@@ -80,13 +62,70 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
-    /* background: linear-gradient(#0000FF, #EE82EE, #0000FF); */
 }
 
-/* Style du footer */
-/* footer {
-    background-size: cover;
-    background-position: center;
-    padding: 15px 20px;
-    min-height: 100vh;
-} */
+.rectangle-pseudo {
+    width: 300px;
+    height: 200px;
+    background-color: #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.upseudo-not-used {
+    margin: 20px;
+}
+
+.pseudo-not-used input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
+.pseudo-not-used button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+/*  */
+
+.pseudo-form-used {
+    margin: 20px;
+}
+
+.pseudo-form-used input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
+.pseudo-form-used button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.pseudo-form-used button:hover {
+    background-color: #010305;
+    margin: 0 auto;
+}
+
+
